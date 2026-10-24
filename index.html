@@ -1,0 +1,224 @@
+<!DOCTYPE HTML>
+<!--
+	Ethan Cleminson — Engineering Portfolio
+	Built on Massively by HTML5 UP (html5up.net | @ajlkn)
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+
+	Look for "EDIT" comments for the bits that need filling in.
+	To add a project, copy the PROJECT TEMPLATE block near the bottom of <div id="main">.
+-->
+<html lang="en-GB">
+	<head>
+		<title>Ethan Cleminson | Engineering Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="Engineering portfolio of Ethan Cleminson: electronics, embedded programming and mechanical design projects." />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/custom.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper" class="fade-in">
+
+				<!-- Intro -->
+					<div id="intro">
+						<h1>Engineering Portfolio<br />
+						Ethan Cleminson</h1>
+						<p>Projects I have designed, built and tested, with the problems I hit along the way and how I solved them.</p>
+						<ul class="actions">
+							<li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
+						</ul>
+					</div>
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Ethan Cleminson</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="active"><a href="index.html">Portfolio</a></li>
+							<!-- To add a second page later, e.g. work experience:
+							<li><a href="experience.html">Experience</a></li>
+							-->
+						</ul>
+						<ul class="icons">
+							<!-- EDIT: same links as the footer Social section -->
+							<li><a href="files/Ethan-Cleminson-CV.pdf" class="icon solid fa-file-alt" title="CV"><span class="label">CV</span></a></li>
+							<li><a href="https://www.linkedin.com/in/EDIT-ME" class="icon brands fa-linkedin-in" title="LinkedIn"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/EDIT-ME" class="icon brands fa-github" title="GitHub"><span class="label">GitHub</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- About Me -->
+							<article class="post featured about">
+								<header class="major">
+									<h2>About Me</h2>
+								</header>
+								<!-- EDIT: add a photo by saving it as images/ethan.jpg and removing the comment marks below
+								<span class="image left"><img src="images/ethan.jpg" alt="Ethan Cleminson" /></span>
+								-->
+								<!-- EDIT: draft only. Ethan should rewrite this in his own words. -->
+								<p>I am a student working towards a career in electrical engineering. I am most interested in the point where electronics, code and mechanical design meet, and I learn best by building something real and then finding out what is wrong with it.</p>
+								<p>Each project below sets out what I was trying to achieve, how I designed and built it, what went wrong, and what I changed. The full write-up for each one can be opened from its project section.</p>
+							</article>
+
+						<!-- ============================================================
+						     PROJECT: H-Pattern Gearbox
+						     ============================================================ -->
+							<article class="post project" id="h-pattern-gearbox">
+								<header class="major">
+									<span class="date">April 2026</span>
+									<h2>Custom H&#8209;Pattern Gearbox<br />
+									for Sim Racing</h2>
+								</header>
+
+								<div class="carousel">
+									<figure class="slide is-active">
+										<a href="images/projects/h-pattern-gearbox/finished-shifter.jpg" target="_blank" rel="noopener">
+											<img src="images/projects/h-pattern-gearbox/finished-shifter.jpg" alt="Finished wooden H-pattern shifter with gear knob, mounted on a long timber batten" />
+										</a>
+										<figcaption><strong>The finished shifter</strong>The box is glued to a timber batten that slides under the desk, so the steering wheel's clamp holds both the wheel and the shifter.</figcaption>
+									</figure>
+									<figure class="slide">
+										<a href="images/projects/h-pattern-gearbox/gimbal-pivot.jpg" target="_blank" rel="noopener">
+											<img src="images/projects/h-pattern-gearbox/gimbal-pivot.jpg" alt="Inner box of the gimbal pivot holding the wooden dowel lever during development" />
+										</a>
+										<figcaption><strong>Two-axis gimbal pivot</strong>The inner box carries the lever and lets it tilt forward and back. The whole inner box rotates in the main housing to give the left-to-right movement.</figcaption>
+									</figure>
+									<figure class="slide">
+										<a href="images/projects/h-pattern-gearbox/wiring-schematic.png" target="_blank" rel="noopener">
+											<img src="images/projects/h-pattern-gearbox/wiring-schematic.png" alt="Wiring schematic: six microswitches connected to Raspberry Pi Pico GPIO pins and ground" />
+										</a>
+										<figcaption><strong>Wiring schematic</strong>Six microswitches, one per gear, each on its own GPIO pin and ground. The Pico's internal pull-up resistors make the inputs active-low, so no external resistors are needed.</figcaption>
+									</figure>
+									<figure class="slide">
+										<a href="images/projects/h-pattern-gearbox/shifter-logic-flowchart.png" target="_blank" rel="noopener">
+											<img src="images/projects/h-pattern-gearbox/shifter-logic-flowchart.png" alt="Flowchart of the shifter software logic" />
+										</a>
+										<figcaption><strong>Software logic</strong>The Pico reads the switches continuously. A switch must be held for a set debounce time before its gear button is pressed; with no switch held, all buttons are released, which is neutral.</figcaption>
+									</figure>
+								</div>
+
+								<div class="summary">
+									<p><strong>Objective:</strong> To design and build a working five-speed-plus-reverse H-pattern shifter for PC sim racing at a fraction of the cost of a commercial one, and to use the project to learn soldering and microcontroller programming.</p>
+									<p><strong>Result:</strong> A plywood shifter with a wooden gimbal pivot and a balsa 5+R gate. Six microswitches are read by a Raspberry Pi Pico running CircuitPython, which appears to the PC as a USB game controller with one button per gear. It works in Assetto Corsa and Euro Truck Simulator 2 and cost about £20.</p>
+									<p><strong>Key problem solved:</strong> The first 6+R gate jammed in the outer gates because my CAD design treated the panel as a flat shape and ignored the wood's thickness. A tilting lever needs more clearance through a thick panel, so I redesigned the gate as 5+R and cut it from thinner balsa, after which the lever moved freely in every gate.</p>
+								</div>
+
+								<ul class="tags">
+									<li>CAD</li>
+									<li>Woodwork</li>
+									<li>Soldering</li>
+									<li>Raspberry Pi Pico</li>
+									<li>CircuitPython</li>
+									<li>USB HID</li>
+								</ul>
+
+								<ul class="actions special">
+									<li><a href="files/h-pattern-gearbox-report.pdf" class="button" target="_blank" rel="noopener">Read the full report</a></li>
+								</ul>
+							</article>
+
+						<!-- ============================================================
+						     PROJECT TEMPLATE — copy everything between the START and END
+						     lines, paste it above this comment, then edit.
+						     Put images in images/projects/<project-name>/
+						     and the PDF report in files/<project-name>-report.pdf
+
+						START
+							<article class="post project" id="project-name">
+								<header class="major">
+									<span class="date">Month Year</span>
+									<h2>Project Title</h2>
+								</header>
+
+								<div class="carousel">
+									<figure class="slide is-active">
+										<a href="images/projects/project-name/photo-1.jpg" target="_blank" rel="noopener">
+											<img src="images/projects/project-name/photo-1.jpg" alt="Describe the image" />
+										</a>
+										<figcaption><strong>Caption title</strong>One or two sentences about the image.</figcaption>
+									</figure>
+									<figure class="slide">
+										<a href="images/projects/project-name/photo-2.jpg" target="_blank" rel="noopener">
+											<img src="images/projects/project-name/photo-2.jpg" alt="Describe the image" />
+										</a>
+										<figcaption><strong>Caption title</strong>One or two sentences about the image.</figcaption>
+									</figure>
+								</div>
+
+								<div class="summary">
+									<p><strong>Objective:</strong> What you set out to do.</p>
+									<p><strong>Result:</strong> What you ended up with and how well it works.</p>
+									<p><strong>Key problem solved:</strong> The main thing that went wrong and how you fixed it.</p>
+								</div>
+
+								<ul class="tags">
+									<li>Skill</li>
+									<li>Skill</li>
+								</ul>
+
+								<ul class="actions special">
+									<li><a href="files/project-name-report.pdf" class="button" target="_blank" rel="noopener">Read the full report</a></li>
+								</ul>
+							</article>
+						END
+						     ============================================================ -->
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<section class="split contact">
+							<section class="resume">
+								<h3>Resume</h3>
+								<!-- EDIT: save the CV as files/Ethan-Cleminson-CV.pdf -->
+								<p><a href="files/Ethan-Cleminson-CV.pdf" target="_blank" rel="noopener">Download my CV (PDF)</a></p>
+							</section>
+							<section>
+								<h3>Phone</h3>
+								<!-- EDIT: or delete this whole <section> to leave the phone number off -->
+								<p><a href="tel:+447000000000">07000 000000</a></p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<!-- EDIT -->
+								<p><a href="mailto:ethan@example.com">ethan@example.com</a></p>
+							</section>
+							<section>
+								<h3>Social</h3>
+								<ul class="icons alt">
+									<!-- EDIT: same links as the nav bar -->
+									<li><a href="https://www.linkedin.com/in/EDIT-ME" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+									<li><a href="https://github.com/EDIT-ME" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+								</ul>
+							</section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; Ethan Cleminson</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="assets/js/carousel.js"></script>
+
+	</body>
+</html>
